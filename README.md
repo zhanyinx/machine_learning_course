@@ -1,8 +1,8 @@
-# Machine Learning Course: Risk Classification from Transcriptomics Data
+# Machine Learning Course: Clinical Risk Classification from Transcriptomics Data
 
 ## Course Overview
 
-This repository contains materials for an introduction to machine learning course focused on developing a **risk classification model from transcriptomics data** using the **Metabric dataset**. Students will learn to apply machine learning techniques to real-world genomics data for predicting breast cancer patient outcomes.
+This repository contains materials for a comprehensive machine learning course focused on developing **clinical risk classification models from transcriptomics data** using the **Metabric dataset**. Students will learn to apply both time-independent and time-dependent machine learning techniques to real-world genomics data for predicting breast cancer patient outcomes and stratifying patients into meaningful risk groups.
 
 ## Learning Objectives
 
@@ -12,10 +12,14 @@ By the end of this course, students will be able to:
 2. **Explore and visualize** high-dimensional genomics datasets
 3. **Preprocess genomics data** including normalization and quality control
 4. **Apply feature selection** techniques for high-dimensional data
-5. **Train and evaluate** various machine learning models for classification
-6. **Interpret model results** in a clinical context
-7. **Validate models** using appropriate cross-validation strategies
-8. **Communicate findings** through visualizations and reports
+5. **Develop time-independent classification models** for patient risk assessment
+6. **Implement time-dependent survival analysis models** including Cox regression
+7. **Evaluate models using clinical metrics** including C-index and precision in low-risk groups
+8. **Perform risk stratification analysis** to create meaningful patient groups
+9. **Compare and select optimal models** using comprehensive evaluation frameworks
+10. **Validate models** using appropriate statistical methods and clinical utility assessment
+11. **Interpret model results** in a clinical context with explainability tools
+12. **Deploy production-ready models** with clinical implementation materials
 
 ## Dataset: Metabric
 
@@ -42,10 +46,7 @@ machine_learning_course/
 │   ├── 01_data_exploration.ipynb
 │   ├── 02_data_preprocessing.ipynb
 │   ├── 03_feature_selection.ipynb
-│   ├── 04_model_training.ipynb
-│   ├── 05_model_evaluation.ipynb
-│   ├── 06_risk_stratification.ipynb
-│   └── 07_final_model.ipynb
+│   └── 04_model_development.ipynb    # Comprehensive modeling pipeline
 ├── models/                 # Trained model artifacts
 └── results/               # Analysis outputs
     ├── figures/           # Plots and visualizations
@@ -120,70 +121,70 @@ Follow the notebooks in order:
    - Implement LASSO regularization
    - Compare feature selection methods
 
-4. **Model Training** (`04_model_training.ipynb`)
-   - Train baseline logistic regression
-   - Implement random forest classifier
-   - Apply support vector machines
-   - Train gradient boosting models
-
-5. **Model Evaluation** (`05_model_evaluation.ipynb`)
-   - Calculate performance metrics (AUC, accuracy, F1-score)
-   - Create ROC curves and confusion matrices
-   - Perform cross-validation
-   - Compare model performance
-
-6. **Risk Stratification** (`06_risk_stratification.ipynb`)
-   - Generate risk scores for patients
-   - Create risk groups (low, intermediate, high)
-   - Perform survival analysis
-   - Validate clinical utility
-
-7. **Final Model** (`07_final_model.ipynb`)
-   - Select best performing model
-   - Retrain on full training set
-   - Final validation on test set
-   - Create deployment-ready model
+4. **Comprehensive Model Development** (`04_model_development.ipynb`)
+   - **Activity 1**: Library setup and environment configuration
+   - **Activity 2**: Data loading and feature set preparation
+   - **Activity 3**: Time-independent classification models (Logistic, SVM, RF, GB, Neural Networks)
+   - **Activity 4**: Time-dependent survival analysis models (Cox regression, Random Survival Forest)
+   - **Activity 5**: Comprehensive evaluation with clinical metrics (C-index, precision in low-risk)
+   - **Activity 6**: Risk stratification analysis and patient group validation
+   - **Activity 7**: Model comparison and selection using multi-criteria evaluation
+   - **Activity 8**: Final model validation, interpretation, and clinical deployment
 
 ## Key Machine Learning Concepts Covered
 
-### Supervised Learning
-- Classification vs. regression
-- Binary and multi-class classification
-- Model selection and hyperparameter tuning
+### Time-Independent Classification
+- **Linear Models**: Logistic regression with L1/L2 regularization
+- **Tree-Based**: Random Forest, Gradient Boosting, XGBoost
+- **Kernel Methods**: Support Vector Machines (RBF, Linear kernels)
+- **Neural Networks**: Multi-layer perceptrons with regularization
+- **Ensemble Methods**: Voting classifiers and model stacking
 
-### Model Types
-- **Linear Models**: Logistic regression, LASSO
-- **Tree-Based**: Random Forest, Gradient Boosting
-- **Instance-Based**: k-NN
-- **Kernel Methods**: Support Vector Machines
-- **Neural Networks**: Multi-layer perceptrons
+### Time-Dependent Survival Analysis
+- **Cox Proportional Hazards**: Time-to-event modeling with covariates
+- **Random Survival Forest**: Non-parametric ensemble survival models
+- **Time-Varying Coefficients**: Models with temporal dependencies
+- **Kaplan-Meier Estimation**: Non-parametric survival curve estimation
+- **Log-Rank Tests**: Statistical comparison of survival curves
 
-### Model Evaluation
-- Cross-validation strategies
-- Performance metrics for imbalanced data
-- ROC curves and AUC
-- Precision-recall curves
-- Statistical significance testing
+### Clinical Evaluation Metrics
+- **C-index (Concordance Index)**: Primary ranking metric for risk models
+- **Precision in Low-Risk Groups**: Clinical utility for identifying low-risk patients
+- **Calibration Analysis**: Model reliability assessment with calibration curves
+- **Risk Stratification**: Statistical validation of patient group separation
+- **Decision Curve Analysis**: Clinical utility and net benefit evaluation
 
-### Feature Engineering
-- Handling high-dimensional data
-- Feature selection techniques
-- Dimensionality reduction (PCA, t-SNE)
-- Feature importance interpretation
+### Advanced Model Evaluation
+- **Cross-validation strategies** for time-dependent data
+- **Bootstrap confidence intervals** for robust performance estimates
+- **Subgroup analysis** and model generalization assessment
+- **Missing data sensitivity** analysis and handling strategies
+- **Model interpretability** with SHAP values and feature importance
 
-### Genomics-Specific Concepts
-- Gene expression normalization
-- Batch effect correction
-- Pathway analysis
-- Survival analysis and Cox regression
+### Feature Engineering for Genomics
+- **High-dimensional data handling** and curse of dimensionality
+- **Gene expression normalization** and batch effect correction
+- **Feature selection techniques** (univariate, recursive, LASSO)
+- **Dimensionality reduction** (PCA, t-SNE) for visualization
+- **Pathway analysis** and biological interpretation
+
+### Clinical Implementation
+- **Risk calculator development** for clinical decision support
+- **Model deployment** and production-ready implementation
+- **Clinical validation frameworks** and regulatory considerations
+- **Continuous learning** and model updating strategies
+- **Electronic health record integration** considerations
 
 ## Assessment and Exercises
 
-Each notebook contains:
-- **Guided exercises** with step-by-step instructions
-- **Practice problems** for hands-on experience
-- **Discussion questions** for deeper understanding
-- **Extension challenges** for advanced students
+The comprehensive model development notebook contains:
+- **8 Guided Activities** with step-by-step instructions covering the complete ML pipeline
+- **Hands-on Implementation** of both time-independent and time-dependent models
+- **Clinical Evaluation Framework** with real-world metrics (C-index, precision in low-risk)
+- **Risk Stratification Analysis** for meaningful patient group classification
+- **Model Comparison** using multi-criteria evaluation and statistical validation
+- **Production Deployment** with clinical implementation materials and documentation
+- **Extension Challenges** for advanced students including external validation and regulatory preparation
 
 ## Resources and References
 

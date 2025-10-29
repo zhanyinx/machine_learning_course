@@ -16,9 +16,19 @@ imbalanced-learn>=0.8.0
 tensorflow>=2.8.0
 torch>=1.10.0
 
-# Survival analysis
+# Survival analysis and time-dependent modeling
 lifelines>=0.26.0
 scikit-survival>=0.17.0
+pysurvival>=0.1.2
+
+# Advanced ML and ensemble methods
+catboost>=1.0.0
+optuna>=3.0.0
+hyperopt>=0.2.7
+
+# Model interpretation and explainability
+eli5>=0.11.0
+lime>=0.2.0
 
 # Bioinformatics
 biopython>=1.79
@@ -38,9 +48,15 @@ tqdm>=4.62.0
 joblib>=1.1.0
 requests>=2.26.0
 
-# Statistical analysis
+# Statistical analysis and clinical metrics
 statsmodels>=0.13.0
 pingouin>=0.5.0
+scipy>=1.7.0
+sklearn-pandas>=2.2.0
+
+# Model validation and calibration
+calibration>=0.1.0
+scikit-plot>=0.3.7
 
 # Configuration and logging
 pyyaml>=6.0
