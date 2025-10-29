@@ -91,7 +91,7 @@ machine_learning_course/
    - **Clinical Sample Data**: [Download Link](https://drive.google.com/file/d/1q4I2v-12jUrwJ3Jf8CICi235ZvsODDW7/view?usp=sharing)
      - Save as: `data/clinical_sample_data.csv`
    
-   - **Expression Data**: [Download Link](https://drive.google.com/file/d/1q4I2v-12jUrwJ3Jf8CICi235ZvsODDW7/view?usp=sharing)
+   - **Expression Data**: [Download Link](https://drive.google.com/file/d/1qi6Nevc7ypmZO9AzCINssQqSFOMnL0sZ/view?usp=sharing)
      - Save as: `data/expression_data.csv`
 
 5. **Launch Jupyter**:
