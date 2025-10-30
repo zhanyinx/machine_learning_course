@@ -1,66 +1,49 @@
-# Machine Learning Course: Clinical Risk Classification from Transcriptomics Data
+# Machine Learning Course: Patient Risk Stratification
 
-## Course Overview
+## 🎯 **Project Goal**
 
-This repository contains materials for a comprehensive machine learning course focused on developing **clinical risk classification models from transcriptomics data** using the **Metabric dataset**. Students will learn to apply both time-independent and time-dependent machine learning techniques to real-world genomics data for predicting breast cancer patient outcomes and stratifying patients into meaningful risk groups.
+**Implement a machine learning model to stratify breast cancer patients into high and low risk groups using RNA expression data and clinical features.**
 
-## Learning Objectives
+## What You'll Learn
 
-By the end of this course, students will be able to:
+1. Explore and preprocess high-dimensional genomics data
+2. Select informative features from gene expression profiles
+3. Train classification and survival models for risk prediction
+4. Evaluate models using clinical metrics (C-index, precision in low-risk)
+5. Stratify patients into validated risk groups
+6. Deploy production-ready risk prediction models
 
-1. **Understand transcriptomics data** and its application in precision medicine
-2. **Explore and visualize** high-dimensional genomics datasets
-3. **Preprocess genomics data** including normalization and quality control
-4. **Apply feature selection** techniques for high-dimensional data
-5. **Develop time-independent classification models** for patient risk assessment
-6. **Implement time-dependent survival analysis models** including Cox regression
-7. **Evaluate models using clinical metrics** including C-index and precision in low-risk groups
-8. **Perform risk stratification analysis** to create meaningful patient groups
-9. **Compare and select optimal models** using comprehensive evaluation frameworks
-10. **Validate models** using appropriate statistical methods and clinical utility assessment
-11. **Interpret model results** in a clinical context with explainability tools
-12. **Deploy production-ready models** with clinical implementation materials
+## Dataset
 
-## Dataset: Metabric
+**Metabric Dataset** (~2,000 breast cancer patients):
+- **Gene expression data**: RNA expression profiles for thousands of genes
+- **Clinical data**: Patient demographics, tumor characteristics, treatment information
+- **Survival data**: Recurrence-free survival (RFS_MONTHS, RFS_STATUS)
 
-The **Molecular Taxonomy of Breast Cancer International Consortium (Metabric)** dataset contains:
-- Gene expression profiles for ~2,000 breast cancer samples
-- Clinical and pathological annotations
-- Long-term survival follow-up data
-- Multiple molecular subtypes and risk classifications
-
-**Citation**: Curtis, C. et al. The genomic and transcriptomic architecture of 2,000 breast tumours reveals novel subgroups. *Nature* 486, 346–352 (2012).
+*Source: Curtis, C. et al. Nature 486, 346–352 (2012)*
 
 ## Project Structure
 
 ```
 machine_learning_course/
-├── README.md                 # This file
-├── requirements.txt          # Python dependencies
-├── .gitignore               # Git ignore file
-├── data/                    # Data directory (download files here)
-│   ├── clinical_patient_data.csv    # Patient demographics and outcomes
-│   ├── clinical_sample_data.csv     # Sample-level clinical data
-│   └── expression_data.csv          # Gene expression data
-├── notebooks/              # Jupyter notebooks (main learning materials)
+├── data/                           # Download data files here
+│   ├── clinical_patient_data.csv
+│   ├── clinical_sample_data.csv
+│   └── expression_data.csv
+├── notebooks/                      # 4 sequential notebooks
 │   ├── 01_data_exploration.ipynb
 │   ├── 02_data_preprocessing.ipynb
 │   ├── 03_feature_selection.ipynb
-│   └── 04_model_development.ipynb    # Comprehensive modeling pipeline
-├── models/                 # Trained model artifacts
-└── results/               # Analysis outputs
-    ├── figures/           # Plots and visualizations
-    └── reports/           # Analysis reports
+│   └── 04_model_development.ipynb
+└── results/                        # Generated outputs
 ```
 
-## Getting Started
+## Setup
 
 ### Prerequisites
-
 - Python 3.8+
-- Jupyter Notebook or JupyterLab
-- Basic knowledge of Python and pandas
-- Understanding of basic statistics and linear algebra
+- Jupyter Notebook
+- Basic Python, pandas, and statistics knowledge
 
 ### Installation
 
@@ -99,125 +82,62 @@ machine_learning_course/
    jupyter notebook
    ```
 
-### Course Progression
+## Workflow
 
-Follow the notebooks in order:
+Complete the 4 notebooks in order:
 
-1. **Data Exploration** (`01_data_exploration.ipynb`)
-   - Load and examine the Metabric dataset
-   - Understand data structure and quality
-   - Visualize gene expression distributions
-   - Explore clinical variables and outcomes
+### **1. Data Exploration** (`01_data_exploration.ipynb`)
+- Load RNA expression and clinical data
+- Visualize data distributions and quality
+- Explore survival outcomes (RFS_MONTHS, RFS_STATUS)
 
-2. **Data Preprocessing** (`02_data_preprocessing.ipynb`)
-   - Handle missing values
-   - Normalize gene expression data
-   - Filter low-variance genes
-   - Create train/validation/test splits
+### **2. Data Preprocessing** (`02_data_preprocessing.ipynb`)
+- Handle missing values and normalize expression data
+- Filter low-variance genes
+- Prepare RFS target variables
+- Create train/validation/test splits
 
-3. **Feature Selection** (`03_feature_selection.ipynb`)
-   - Apply univariate feature selection
-   - Use recursive feature elimination
-   - Implement LASSO regularization
-   - Compare feature selection methods
+### **3. Feature Selection** (`03_feature_selection.ipynb`)
+Apply 7 feature selection methods:
+- Advanced variance filtering
+- De-correlation analysis
+- Differential expression between risk groups
+- Random Forest importance with KneeLocator
+- LASSO and SVM-based selection
+- Boruta all-relevant feature detection
+- Cox regression survival association
+- **Output**: Optimized feature sets for modeling
 
-4. **Comprehensive Model Development** (`04_model_development.ipynb`)
-   - **Activity 1**: Library setup and environment configuration
-   - **Activity 2**: Data loading and feature set preparation
-   - **Activity 3**: Time-independent classification models (Logistic, SVM, RF, GB, Neural Networks)
-   - **Activity 4**: Time-dependent survival analysis models (Cox regression, Random Survival Forest)
-   - **Activity 5**: Comprehensive evaluation with clinical metrics (C-index, precision in low-risk)
-   - **Activity 6**: Risk stratification analysis and patient group validation
-   - **Activity 7**: Model comparison and selection using multi-criteria evaluation
-   - **Activity 8**: Final model validation, interpretation, and clinical deployment
+### **4. Model Development** (`04_model_development.ipynb`)
+- Train classification models (Logistic, SVM, Random Forest, GBM, Neural Networks)
+- Train survival models (Cox regression)
+- Evaluate using C-index and precision in low-risk
+- **Stratify patients into low/medium/high risk groups**
+- Validate with Kaplan-Meier survival curves
+- Select and deploy final production model
 
-## Key Machine Learning Concepts Covered
+## Key Concepts
 
-### Time-Independent Classification
-- **Linear Models**: Logistic regression with L1/L2 regularization
-- **Tree-Based**: Random Forest, Gradient Boosting, XGBoost
-- **Kernel Methods**: Support Vector Machines (RBF, Linear kernels)
-- **Neural Networks**: Multi-layer perceptrons with regularization
-- **Ensemble Methods**: Voting classifiers and model stacking
+### Methods
+- **Classification**: Logistic Regression, SVM, Random Forest, Gradient Boosting, Neural Networks
+- **Survival Analysis**: Cox Proportional Hazards regression
+- **Feature Selection**: Variance filtering, differential expression, Random Forest importance, LASSO, Boruta, Cox association
 
-### Time-Dependent Survival Analysis
-- **Cox Proportional Hazards**: Time-to-event modeling with covariates
-- **Random Survival Forest**: Non-parametric ensemble survival models
-- **Time-Varying Coefficients**: Models with temporal dependencies
-- **Kaplan-Meier Estimation**: Non-parametric survival curve estimation
-- **Log-Rank Tests**: Statistical comparison of survival curves
+### Evaluation Metrics
+- **C-index**: Concordance index for ranking predictions
+- **Precision in Low-Risk**: Identifying patients who truly don't need aggressive treatment
+- **Risk Stratification**: Statistical validation of patient groups (Kaplan-Meier curves, log-rank tests)
+- **Calibration**: Agreement between predicted and observed event rates
 
-### Clinical Evaluation Metrics
-- **C-index (Concordance Index)**: Primary ranking metric for risk models
-- **Precision in Low-Risk Groups**: Clinical utility for identifying low-risk patients
-- **Calibration Analysis**: Model reliability assessment with calibration curves
-- **Risk Stratification**: Statistical validation of patient group separation
-- **Decision Curve Analysis**: Clinical utility and net benefit evaluation
+## Expected Outcome
 
-### Advanced Model Evaluation
-- **Cross-validation strategies** for time-dependent data
-- **Bootstrap confidence intervals** for robust performance estimates
-- **Subgroup analysis** and model generalization assessment
-- **Missing data sensitivity** analysis and handling strategies
-- **Model interpretability** with SHAP values and feature importance
-
-### Feature Engineering for Genomics
-- **High-dimensional data handling** and curse of dimensionality
-- **Gene expression normalization** and batch effect correction
-- **Feature selection techniques** (univariate, recursive, LASSO)
-- **Dimensionality reduction** (PCA, t-SNE) for visualization
-- **Pathway analysis** and biological interpretation
-
-### Clinical Implementation
-- **Risk calculator development** for clinical decision support
-- **Model deployment** and production-ready implementation
-- **Clinical validation frameworks** and regulatory considerations
-- **Continuous learning** and model updating strategies
-- **Electronic health record integration** considerations
-
-## Assessment and Exercises
-
-The comprehensive model development notebook contains:
-- **8 Guided Activities** with step-by-step instructions covering the complete ML pipeline
-- **Hands-on Implementation** of both time-independent and time-dependent models
-- **Clinical Evaluation Framework** with real-world metrics (C-index, precision in low-risk)
-- **Risk Stratification Analysis** for meaningful patient group classification
-- **Model Comparison** using multi-criteria evaluation and statistical validation
-- **Production Deployment** with clinical implementation materials and documentation
-- **Extension Challenges** for advanced students including external validation and regulatory preparation
-
-## Resources and References
-
-### Essential Papers
-1. Curtis, C. et al. (2012). The genomic and transcriptomic architecture of 2,000 breast tumours reveals novel subgroups. *Nature*, 486(7403), 346-352.
-2. Pereira, B. et al. (2016). The somatic mutation profiles of 2,433 breast cancers refines their genomic and transcriptomic landscapes. *Nature Communications*, 7, 11479.
-
-### Textbooks
-- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning*
-- James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). *An Introduction to Statistical Learning*
-- Gentleman, R. et al. (2005). *Bioinformatics and Computational Biology Solutions Using R and Bioconductor*
-
-### Online Resources
-- [scikit-learn documentation](https://scikit-learn.org/)
-- [pandas documentation](https://pandas.pydata.org/)
-- [matplotlib/seaborn tutorials](https://matplotlib.org/stable/tutorials/index.html)
-
-## Contributing
-
-This is an educational repository. Students are encouraged to:
-- Submit issues for bugs or unclear instructions
-- Propose improvements to notebooks
-- Share interesting findings or extensions
-- Contribute additional exercises or examples
-
-## License
-
-This course material is provided for educational purposes. Please cite appropriately if using in academic work.
-
-## Contact
-
-For questions about the course materials, please open an issue in this repository or contact the course instructor.
+By completing this course, you will:
+- Build a production-ready risk stratification model
+- Generate **low, medium, and high risk patient groups** with statistical validation
+- Create Kaplan-Meier survival curves showing clear risk separation
+- Deploy a model with C-index > 0.7 and validated precision metrics
+- Produce complete documentation for clinical implementation
 
 ---
 
-**Happy Learning!** 🧬📊🤖
+**Good luck with your risk stratification project!** 🎯📊

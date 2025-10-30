@@ -1,63 +1,100 @@
-# Python dependencies for machine learning course
+# Python dependencies for Machine Learning Course
+# Clinical Risk Classification from Transcriptomics Data
+
+# =============================================================================
+# CORE REQUIREMENTS (Essential for all notebooks)
+# =============================================================================
+
 # Core data science libraries
 numpy>=1.21.0
 pandas>=1.3.0
+scipy>=1.7.0
+
+# Visualization libraries
 matplotlib>=3.4.0
 seaborn>=0.11.0
 plotly>=5.0.0
 
-# Machine learning
+# Machine learning core
 scikit-learn>=1.0.0
-xgboost>=1.5.0
-lightgbm>=3.3.0
-imbalanced-learn>=0.8.0
 
-# Deep learning (optional)
-tensorflow>=2.8.0
-torch>=1.10.0
-
-# Survival analysis and time-dependent modeling
-lifelines>=0.26.0
-scikit-survival>=0.17.0
-pysurvival>=0.1.2
-
-# Advanced ML and ensemble methods
-catboost>=1.0.0
-optuna>=3.0.0
-hyperopt>=0.2.7
-
-# Model interpretation and explainability
-eli5>=0.11.0
-lime>=0.2.0
-
-# Bioinformatics
-biopython>=1.79
-scipy>=1.7.0
-
-# Jupyter and development
+# Jupyter environment
 jupyter>=1.0.0
 jupyterlab>=3.2.0
 ipywidgets>=7.6.0
 
-# Data visualization
-shap>=0.40.0
-yellowbrick>=1.4.0
-
 # Utilities
-tqdm>=4.62.0
 joblib>=1.1.0
-requests>=2.26.0
+tqdm>=4.62.0
 
-# Statistical analysis and clinical metrics
-statsmodels>=0.13.0
-pingouin>=0.5.0
-scipy>=1.7.0
-sklearn-pandas>=2.2.0
+# =============================================================================
+# ADVANCED MACHINE LEARNING (For comprehensive modeling)
+# =============================================================================
 
-# Model validation and calibration
-calibration>=0.1.0
+# Gradient boosting
+xgboost>=1.5.0
+lightgbm>=3.3.0
+catboost>=1.0.0
+
+# Handling imbalanced data
+imbalanced-learn>=0.8.0
+
+# Hyperparameter optimization
+optuna>=3.0.0
+hyperopt>=0.2.7
+
+# =============================================================================
+# SURVIVAL ANALYSIS (Time-dependent modeling)
+# =============================================================================
+
+# Survival analysis libraries
+lifelines>=0.26.0
+scikit-survival>=0.17.0
+
+# =============================================================================
+# MODEL INTERPRETATION & EXPLAINABILITY
+# =============================================================================
+
+# Feature importance and interpretability
+shap>=0.40.0
+eli5>=0.11.0
+lime>=0.2.0
+
+# Model evaluation and visualization
+yellowbrick>=1.4.0
 scikit-plot>=0.3.7
 
-# Configuration and logging
+# =============================================================================
+# STATISTICAL ANALYSIS
+# =============================================================================
+
+# Statistical modeling
+statsmodels>=0.13.0
+pingouin>=0.5.0
+
+# =============================================================================
+# BIOINFORMATICS (Optional for genomics-specific analysis)
+# =============================================================================
+
+# Bioinformatics libraries (uncomment if needed)
+# biopython>=1.79
+
+# =============================================================================
+# DEEP LEARNING (Optional for neural network approaches)
+# =============================================================================
+
+# Deep learning frameworks (uncomment if needed)
+# tensorflow>=2.8.0
+# torch>=1.10.0
+
+# =============================================================================
+# ADDITIONAL UTILITIES
+# =============================================================================
+
+# Data handling
+requests>=2.26.0
 pyyaml>=6.0
-configparser>=5.2.0
+
+# Feature selection (uncomment if needed)
+# boruta>=0.3
+ 
