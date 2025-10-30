@@ -4,6 +4,8 @@
 
 **Implement a machine learning model to stratify breast cancer patients into high and low risk groups using RNA expression data and clinical features.**
 
+**Key Objective**: Minimize errors in the low-risk group — patients predicted as low-risk should truly have no recurrence events. High precision in low-risk identification is critical for clinical decisions about treatment de-escalation.
+
 ## What You'll Learn
 
 1. Explore and preprocess high-dimensional genomics data
@@ -125,7 +127,7 @@ Apply 7 feature selection methods:
 
 ### Evaluation Metrics
 - **C-index**: Concordance index for ranking predictions
-- **Precision in Low-Risk**: Identifying patients who truly don't need aggressive treatment
+- **Precision in Low-Risk** (Primary Clinical Metric): Proportion of patients predicted as low-risk who truly have no recurrence events. **Goal: Maximize this to minimize false low-risk predictions** — we don't want events in the low-risk group.
 - **Risk Stratification**: Statistical validation of patient groups (Kaplan-Meier curves, log-rank tests)
 - **Calibration**: Agreement between predicted and observed event rates
 
@@ -134,8 +136,9 @@ Apply 7 feature selection methods:
 By completing this course, you will:
 - Build a production-ready risk stratification model
 - Generate **low, medium, and high risk patient groups** with statistical validation
+- **Achieve high precision in low-risk group** (minimize false low-risk predictions — avoid events in low-risk patients)
 - Create Kaplan-Meier survival curves showing clear risk separation
-- Deploy a model with C-index > 0.7 and validated precision metrics
+- Deploy a model with C-index > 0.7 and maximized precision in low-risk identification
 - Produce complete documentation for clinical implementation
 
 ---
